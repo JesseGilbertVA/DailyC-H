@@ -1,0 +1,1 @@
+A simple Discord bot that posts the latest Cyanide and Happiness comic to a specific channel. Currently only sends to one specific channel, but I'll look into branching that out if more interest is shown in having the bot added to multiple servers.

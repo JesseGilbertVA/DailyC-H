@@ -2,10 +2,11 @@ const rp = require('request-promise');
 const cheerio = require('cheerio');
 const config = require('./config.json');
 const Discord = require('discord.js');
+const fs = require('fs');
 const client = new Discord.Client;
 const url = 'http://explosm.net/comics/latest';
 const thursURL = 'http://explosm.net/comics/random';
-const fs = require('fs');
+
 
 var dayOfWeek = new Date();
 var currentDate = dayOfWeek.getDay();
@@ -58,9 +59,16 @@ client.on('ready', () =>{
 })
 
 client.on('message', (message)=>{
+    if (message.author == '695057924493541406' && message.content.includes('http://')){
+        message.react('⬆️')
+        message.react('⬇️')
+    }
     if (message.content === 'To subscribe, type "!sub dailych" in the general channel. "!unsub dailych" to stop.'){
         console.log('Process terminating.');
-        client.destroy();
+        setTimeout(function() {
+            client.destroy()
+        }, 3000)
+        //client.destroy();
     }
 })
 
